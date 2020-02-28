@@ -58,5 +58,5 @@ def customer_cash(customer)
 end
 
 def remove_customer_cash(customer, cash_spent)
-  customer_cash = customer[:cash] -= cash_spent
+  customer[:cash] -= cash_spent
 end
