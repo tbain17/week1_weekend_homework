@@ -77,9 +77,22 @@ def customer_can_afford_pet(customer, new_pet)
 end
 
 def sell_pet_to_customer(shop, pet, customer)
+  for animal in shop[:pets]
+    if animal == pet && customer[:cash] >= pet[:price]
     remove_customer_cash(customer, pet[:price])
     add_or_remove_cash(shop, pet[:price])
     increase_pets_sold(shop,1)
     add_pet_to_customer(customer, pet)
     remove_pet_by_name(shop, pet)
+    end
   end
+end
+
+
+# def sell_pet_to_customer(shop, pet, customer)
+#   remove_customer_cash(customer, pet[:price])
+#   add_or_remove_cash(shop, pet[:price])
+#   increase_pets_sold(shop,1)
+#   add_pet_to_customer(customer, pet)
+#   remove_pet_by_name(shop, pet)
+# end
