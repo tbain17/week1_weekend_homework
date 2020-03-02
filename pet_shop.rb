@@ -106,7 +106,7 @@ def sell_pet_to_customer(shop, pet, customer)
 end
 
 def add_pet_to_shop(shop)
-  new_pet = {}
+
   p "Name of pet:"
   name = gets.chomp
   p "Pet type:"
@@ -115,9 +115,9 @@ def add_pet_to_shop(shop)
   breed = gets.chomp
   p "Pet price:"
   price = gets.chomp.to_i()
-  new_pet[:name] = name
-  new_pet[:type] = type
-  new_pet[:breed] = breed
-  new_pet[:price] = price
+  new_pet = {name: name,
+    pet_type: type,
+    breed: breed,
+    price: price}
   shop[:pets].push(new_pet)
 end
