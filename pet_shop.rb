@@ -41,6 +41,7 @@ end
 
 #returns pet (hash) if name argument == pet name
 def find_pet_by_name(shop,name)
+  pet_name = nil  ##sets pet_name to nil to ensure nil is returned if pet name is not found. (Ruby will return nil anyway if not found, but good practice to ensure it's correct)
   for pet in shop[:pets]
     if pet[:name] == name
       pet_name = pet
@@ -91,7 +92,7 @@ def customer_can_afford_pet(customer, new_pet)
   return false
 end
 
-#Combines functions to exchange money, add pet to customer, remove pet from shop if the customer has enough money and the pet exists
+#Combines functions to exchange money, add pet to customer, remove pet from shop if the customer has enough money and the pet exists.
 def sell_pet_to_customer(shop, pet, customer)
   for animal in shop[:pets]
     if animal == pet && customer_can_afford_pet(customer, pet) == true
@@ -102,4 +103,21 @@ def sell_pet_to_customer(shop, pet, customer)
     remove_pet_by_name(shop, pet)
     end
   end
+end
+
+def add_pet_to_shop(shop)
+  new_pet = {}
+  p "Name of pet:"
+  name = gets.chomp
+  p "Pet type:"
+  type = gets.chomp.to_sym()
+  p "Pet breed:"
+  breed = gets.chomp
+  p "Pet price:"
+  price = gets.chomp.to_i()
+  new_pet[:name] = name
+  new_pet[:type] = type
+  new_pet[:breed] = breed
+  new_pet[:price] = price
+  shop[:pets].push(new_pet)
 end

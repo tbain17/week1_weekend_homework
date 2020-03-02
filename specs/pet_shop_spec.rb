@@ -231,4 +231,11 @@ class TestPetShop < Minitest::Test
     assert_equal(1000, total_cash(@pet_shop))
   end
 
+#Extra stuff: Add function to add new pet to shop pets
+def test_add_pet_to_shop
+  add_pet_to_shop(@pet_shop)
+  assert_equal(7, stock_count(@pet_shop))
+  p @pet_shop[:pets][6]
+end
+
 end
